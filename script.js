@@ -18,7 +18,7 @@ xhr.onload = function () {
             let date = new Date(element.publishedAt)
 
             html += `
-                <div class="card order-3 p-2 bd-highlight my-3" style="width: 18rem">
+                <div class="card order-3 p-2 bd-highlight my-3" style="width: 18rem;">
                     <p>source :-    <strong>${!element.source.name ? 'unknown' : element.source.name}</strong></p>
                     <img
                     src=${!element.urlToImage ? './No_Image.jpg' : element.urlToImage}
