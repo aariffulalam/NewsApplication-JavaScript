@@ -15,7 +15,10 @@ xhr.onload = function () {
         let json = JSON.parse(this.responseText)
 
         json.articles.forEach(element => {
-            let date = new Date(element.publishedAt)
+            let publish = new Date(element.publishedAt)
+            let publishDate = publish.toDateString()
+            let publishTime = publish.toTimeString()
+            // console.log(publishTime.slice(0, 9))
 
             html += `
                 <div class="card order-3 p-2 bd-highlight my-3" style="width: 18rem;">
@@ -31,7 +34,7 @@ xhr.onload = function () {
                         ${!element.description ? 'No Description Available' : element.description}
                     </p>
                     <p>author:-  <strong>${!element.author ? 'Unknown' : element.author}</strong></p>
-                    <p>${element.publishedAt}</p>
+                    <p>${publishDate}   ${publishTime.slice(0, 9)}</p>
                     <a href=${!element.url ? '#' : element.url} class="btn btn-sm btn-primary">More Details</a>
                     </div>
                 </div>
